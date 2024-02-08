@@ -32,11 +32,25 @@ SHOW pipes;
 SHOW streams;
 
 -- 5. tasks
+use schema DT_SOFTWARE_ENGINEERING_DEV.RDIM;
 show tasks
-desc task DT_SOFTWARE_ENGINEERING_DEV.RDIM.dim_customer_task;
+desc task dim_customer_task;
 
-alter task DT_SOFTWARE_ENGINEERING_DEV.RDIM.dim.customer.task resume; 
-alter task DT_SOFTWARE_ENGINEERING_DEV.RDIM.dim_customer.task suspend;
+alter task dim_customer_task resume; 
+alter task dim_customer_task suspend;
 
 
+-- COMPLETE_TASK_GRAPHS(
+--     [ RESULT_LIMIT => <integer> ]
+--     [, ROOT_TASK_NAME => '<string>' ]
+--     [, ERROR_ONLY => { TRUE | FALSE } ] );
+
+COMPLETE_TASK_GRAPHS(
+    [ RESULT_LIHIT => 5 ]
+    [, ROOT_TASK_NAME => 'DT_SOFTWARE_ENGINEERING_DEV.RDIM.dim_customer_task' ]
+    [, ERROR_ONLY -> { TRUE1I |FALSE } ] );
+
+select root_task_name, state 
+from snowflake.account_usage.complete_task_graphs 
+limit 10 ;
 
