@@ -45,12 +45,12 @@ alter task dim_customer_task suspend;
 --     [, ROOT_TASK_NAME => '<string>' ]
 --     [, ERROR_ONLY => { TRUE | FALSE } ] );
 
-COMPLETE_TASK_GRAPHS(
-    [ RESULT_LIHIT => 5 ]
-    [, ROOT_TASK_NAME => 'DT_SOFTWARE_ENGINEERING_DEV.RDIM.dim_customer_task' ]
-    [, ERROR_ONLY -> { TRUE1I |FALSE } ] );
+-- COMPLETE_TASK_GRAPHS(
+--     [ RESULT_LIHIT => 5 ]
+--     [, ROOT_TASK_NAME => 'DT_SOFTWARE_ENGINEERING_DEV.RDIM.dim_customer_task' ]
+--     [, ERROR_ONLY -> { TRUE1I |FALSE } ] );
 
-select root_task_name, state 
-from snowflake.account_usage.complete_task_graphs 
-limit 10 ;
+-- select root_task_name, state 
+-- from snowflake.account_usage.complete_task_graphs 
+-- limit 10 ;
 
